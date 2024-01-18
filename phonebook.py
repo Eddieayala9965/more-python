@@ -8,16 +8,17 @@ print("5. Quit")
 
 userInput = int(input("What do you want to do (1-5)? "))
 phoneBook = {"name":"", "phone": ""}
-
+# write a fun tion that loops over the the phonebook so that we can add things to it
 
 if userInput == 2:
     usersName = input("Enter name: ")
     usersPhone = input("Enter Phone: ")
     if usersName == phoneBook["name"]:
-        phoneBook["name"] = usersName
+        phoneBook["name"].append(usersName)
         if usersPhone == phoneBook["phone"]:
-            phoneBook["phone"] = usersPhone
+            phoneBook["phone"].append(usersPhone)
             print(f"name: {usersName}\nPhone: {usersPhone}")
+           
 
 if userInput == 1:
     usersName = input("What is the users name")

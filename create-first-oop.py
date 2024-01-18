@@ -6,7 +6,8 @@
 # Write another print statement to print the contact info of Jordan.
 
 class Person:
-  
+    
+    greeting_count = 0
 
     def __init__(self, name, email, phone):
       self.name = name
@@ -16,6 +17,7 @@ class Person:
 
     def greet(self, other_person):
       print('Hello %s, I am %s!' % (other_person.name, self.name))
+      self.greeting_count += 1
     
     def print_contact_info(self, contactInfo):
        print("email: %s and phone number: %s " % (contactInfo.email, contactInfo.phone))
@@ -24,7 +26,13 @@ class Person:
        self.friends.append(friends)
     
     def num_friends(self):
-       return print(len(self.friends))
+       return len(self.friends)
+    
+    def __str__(self):
+       return 'Person: {} {} {}'.format(self.name, self.email, self.phone)
+    
+    def num_unique_people_greeted(self):
+       return print(f"this is the amount of times {self.name} has gretted somoene: {self.greeting_count}")
 
 
 
@@ -33,15 +41,32 @@ jordan = Person("Jordan", "jordan@aol.com", 495586345)
 
 jordan.add_friend(sonny)
 sonny.add_friend(jordan)
+numOfFriends = jordan.num_friends()
+print("%s has %s friend" % (jordan.name, numOfFriends))
+# sonny.num_friends()
 
-jordan.num_friends()
-sonny.num_friends()
+print(str(jordan))
+jordan.num_unique_people_greeted()
 
 
 
 
 sonny.greet(jordan)
+sonny.greet(jordan)
+sonny.greet(jordan)
+sonny.greet(jordan)
 jordan.greet(sonny)
+jordan.greet(sonny)
+jordan.greet(sonny)
+
+
+jordan.num_unique_people_greeted()
+sonny.num_unique_people_greeted()
+
+
+
+
+
 
 print(sonny.email)
 print(jordan.email)
@@ -64,3 +89,5 @@ eddiesCar = Vehicle("Honda", "Civic", 2016)
 print(eddiesCar.make, eddiesCar.model, eddiesCar.year)
 
 eddiesCar.print_info(eddiesCar)
+
+
